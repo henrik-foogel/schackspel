@@ -31,7 +31,7 @@ function availableMoves(currentPosition) {
     }    
     if (isOnBoardXY(positionX + 1, positionY - 2)){
         availablePositions.push(coordinatesToPosition(positionX + 1, positionY - 2))
-    } else {
+    } else if (availablePositions < 1){
         console.log("Wrong input");
     }
         
