@@ -1,6 +1,7 @@
 <html>
 <script>
-
+    
+// Kollar vilka förflyttningar som är möjliga
 function availableMoves(currentPosition) {
     let positionX = getXFromString(currentPosition[0])
     let positionY = Number.parseInt(currentPosition[1])
@@ -35,14 +36,17 @@ function availableMoves(currentPosition) {
     return availablePositions;
 }
 
+// Kollar om riddaren är innanför banan och gör availableMoves lättare att läsa
 function isOnBoard(position) {
     return position >= 1 && position <= 8;
 }
 
+// Gör availableMoves lättare att läsa
 function isOnBoardXY(positionX, positionY) {
     return isOnBoard(positionX) && isOnBoard(positionY);
 }
 
+// Gör en siffra av en sträng som motsvarar schackbrädspositionen
 function getXFromString(letter) {
     if (letter === 'A') {
         return 1;
@@ -63,6 +67,7 @@ function getXFromString(letter) {
     }
 }
 
+// Ändrar tillbaka Xposition till bokstav & lägger ihop med Yposition
 function coordinatesToPosition(positionX, positionY) {
     if (positionX === 1) {
         return 'A' + positionY;
@@ -83,6 +88,7 @@ function coordinatesToPosition(positionX, positionY) {
     }    
 }
 
+// Testfunction
 function listContainsAll(items, shouldContain) {
     let result = true
 
@@ -94,6 +100,7 @@ function listContainsAll(items, shouldContain) {
     return result
 }
 
+// tester
 listContainsAll(availableMoves('F3'), ["D2", "D4", "H2", "H4", "E5", "G5", "E1", "G1"]);
 listContainsAll(availableMoves('B7'), ['D8', 'D6', 'C5', 'A5'])
 
