@@ -1,10 +1,20 @@
 <html>
+    <head>
+        <meta charset="utf-8">
+    </head>
 <script>
+
+var wrongInputString = 'Wrong input';
     
 // Kollar vilka förflyttningar som är möjliga
 function availableMoves(currentPosition) {
+
     let positionX = getXFromString(currentPosition[0])
     let positionY = Number.parseInt(currentPosition[1])
+
+    if(positionY < 1 || positionY > 8 || currentPosition.length > 2){
+        return console.log(wrongInputString + ' on number');
+    } else {
 
     let availablePositions = []
 
@@ -31,16 +41,15 @@ function availableMoves(currentPosition) {
     }    
     if (isOnBoardXY(positionX + 1, positionY - 2)){
         availablePositions.push(coordinatesToPosition(positionX + 1, positionY - 2))
-    } else if (availablePositions < 1){
-        console.log("Wrong input");
-    }
+    } 
         
     return availablePositions;
+    }
 }
 
 // Kollar om riddaren är innanför banan och gör availableMoves lättare att läsa
 function isOnBoard(position) {
-    return position >= 1 && position <= 8;
+        return position >= 1 && position <= 8;
 }
 
 // Gör availableMoves lättare att läsa
@@ -50,27 +59,30 @@ function isOnBoardXY(positionX, positionY) {
 
 // Gör en siffra av en sträng som motsvarar schackbrädspositionen
 function getXFromString(letter) {
-    if (letter === 'A') {
+    if (letter === 'A' || letter === 'a') {
         return 1;
-    } else if (letter === 'B') {
+    } else if (letter === 'B' || letter === 'b') {
         return 2;
-    } else if (letter === 'C') {
+    } else if (letter === 'C' || letter === 'c') {
         return 3;
-    } else if (letter === 'D') {
+    } else if (letter === 'D' || letter === 'd') {
         return 4;
-    } else if (letter === 'E') {
+    } else if (letter === 'E' || letter === 'e') {
         return 5;
-    } else if (letter === 'F') {
+    } else if (letter === 'F' || letter === 'f') {
         return 6;
-    } else if (letter === 'G') {
+    } else if (letter === 'G' || letter === 'g') {
         return 7;
-    } else if (letter === 'H') {
+    } else if (letter === 'H' || letter === 'h') {
         return 8;
-    }
+    } else {
+        return console.log(wrongInputString + ' on letter');
+    }  
 }
 
 // Ändrar tillbaka Xposition till bokstav & lägger ihop med Yposition
 function coordinatesToPosition(positionX, positionY) {
+    
     if (positionX === 1) {
         return 'A' + positionY;
     } else if (positionX === 2) {
@@ -87,7 +99,7 @@ function coordinatesToPosition(positionX, positionY) {
         return 'G' + positionY;
     } else if (positionX === 8) {
         return 'H' + positionY;
-    }    
+    }  
 }
 
 // Testfunction
@@ -106,7 +118,9 @@ function listContainsAll(items, shouldContain) {
 listContainsAll(availableMoves('F3'), ["D2", "D4", "H2", "H4", "E5", "G5", "E1", "G1"]);
 listContainsAll(availableMoves('B7'), ['D8', 'D6', 'C5', 'A5'])
 
-console.log(availableMoves('F3'));
+console.log('Använd funktionen availableMoves(), skriv in vilken position hästen' + '\n'
+ + 'ska stå på inom parantesen med fnuttar runt om');
 
 </script>
 </html>
+
