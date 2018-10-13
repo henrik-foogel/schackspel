@@ -42,8 +42,8 @@ function availableMoves(currentPosition) {
     if (isOnBoardXY(positionX + 1, positionY - 2)){
         availablePositions.push(coordinatesToPosition(positionX + 1, positionY - 2))
     } 
-        
-    return availablePositions;
+
+    return console.log('Available moves: ' + availablePositions);
     }
 }
 
@@ -115,8 +115,8 @@ function listContainsAll(items, shouldContain) {
 }
 
 // tester
-listContainsAll(availableMoves('F3'), ["D2", "D4", "H2", "H4", "E5", "G5", "E1", "G1"]);
-listContainsAll(availableMoves('B7'), ['D8', 'D6', 'C5', 'A5'])
+//listContainsAll(availableMoves('F3'), ["D2", "D4", "H2", "H4", "E5", "G5", "E1", "G1"]);
+//listContainsAll(availableMoves('B7'), ['D8', 'D6', 'C5', 'A5'])
 
 console.log('Använd funktionen availableMoves(), skriv in vilken position hästen' + '\n'
  + 'ska stå på inom parantesen med fnuttar runt om');
