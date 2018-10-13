@@ -12,7 +12,7 @@ function availableMoves(currentPosition) {
     let positionX = getXFromString(currentPosition[0])
     let positionY = Number.parseInt(currentPosition[1])
 
-    if(positionY < 1 || positionY > 8 || currentPosition.length > 2 || isNaN(currentPosition[1])){
+    if(positionY < 1 || positionY > 8 || currentPosition.length > 2 || isNaN(positionY)){
         return console.log(wrongInputString + ' on number');
     } else {
 
